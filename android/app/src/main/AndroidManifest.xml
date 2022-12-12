@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fourth_pyramid_task2">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="fourth_pyramid_task2"
         android:name="${applicationName}"

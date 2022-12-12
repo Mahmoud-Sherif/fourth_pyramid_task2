@@ -17,5 +17,6 @@ ThemeData appTheme() {
       titleTextStyle:
           getSemiBoldStyle(color: ColorManager.textPrimary, fontSize: 18),
     ),
+   
   );
 }

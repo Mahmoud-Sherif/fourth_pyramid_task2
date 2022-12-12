@@ -4,13 +4,13 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fourth_pyramid_task2/core/api/dio_consumer.dart';
 import 'package:fourth_pyramid_task2/core/api/end_poinst.dart';
 
 import '../../../config/routes/magic_router.dart';
 import '../../../core/api/dio_helper.dart';
 import '../../../widgets/snack_bar.dart';
-import '../../scan/presentation/scan_view.dart';
+import '../../qr/presentation/scan/scan_view.dart';
+import '../data/localdata/auth_local_data.dart';
 
 part 'auth_state.dart';
 
@@ -31,23 +31,17 @@ class AuthCubit extends Cubit<AuthState> {
       "password": password,
     };
     try {
-      // DioConsumer dio = DioConsumer(client: Dio());
-      final Dio dio = Dio();
-      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-          (HttpClient client) {
-        client.badCertificateCallback =
-            (X509Certificate cert, String host, int port) => true;
-        return client;
-      };
-
-      // final response = await DioHelper.post(EndPoints.login, data: body);
-      print(body);
+      final DioHelper dio = DioHelper(client: Dio());
       final response = await dio.post(
-          'https://fourthpyramidagcy.net/company/api/v1/login-scanner',
-          data: body);
-
+        EndPoints.login,
+        data: body,
+      );
       if (response.statusCode == 200 && response.data['status'] == 1) {
-        // await AppStorage.cacheUserData(apiToken: response.data['data']['token']);
+        await AppStorage.cacheUserData(
+          phone: response.data['data']['user']['phone'],
+          apiToken: response.data['data']['token'],
+          uid: response.data['data']['user']['id'],
+        );
         MagicRouter.navigateAndPopAll(const ScanView());
       } else {
         showSnackBar(response.data['massage'], isError: true);

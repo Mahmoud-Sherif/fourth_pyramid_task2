@@ -36,6 +36,8 @@ dependencies:
   flutter_bloc: ^8.1.1
   flutter_screenutil: ^5.6.0
   flutter_svg: ^1.1.6
+  qr_code_scanner: ^1.0.1
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -55,7 +57,6 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

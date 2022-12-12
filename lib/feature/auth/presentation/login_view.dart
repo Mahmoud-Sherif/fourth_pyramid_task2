@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fourth_pyramid_task2/config/validator/validator.dart';
 import 'package:fourth_pyramid_task2/core/utils/color_manager.dart';
-import 'package:fourth_pyramid_task2/core/utils/media_query_values.dart';
 import 'package:fourth_pyramid_task2/core/utils/styles_manager.dart';
 import 'package:fourth_pyramid_task2/feature/auth/cubit/auth_cubit.dart';
 import 'package:fourth_pyramid_task2/widgets/arc.dart';
