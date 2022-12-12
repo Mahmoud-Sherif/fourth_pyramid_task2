@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fourth_pyramid_task2/feature/auth/presentation/login_view.dart';
-
 import 'config/routes/magic_router.dart';
 import 'config/theme/theme.dart';
 import 'feature/auth/data/localdata/auth_local_data.dart';
@@ -25,8 +24,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: appTheme(),
-          home: AppStorage.isLogged ? const ScanView() : const LoginView(),
-          // home: LoginView(),
+          home: LoginView(),
+          // home: AppStorage.isLogged ? const ScanView() : const LoginView(),
 
           onGenerateRoute: onGenerateRoute,
           navigatorKey: navigatorKey,

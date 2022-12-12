@@ -1,9 +1,12 @@
 import 'dart:math';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fourth_pyramid_task2/core/api/dio_helper.dart';
 import 'package:fourth_pyramid_task2/core/api/end_poinst.dart';
 import 'package:fourth_pyramid_task2/feature/qr/data/scan_result_model.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../../widgets/snack_bar.dart';
 part 'qr_state.dart';
 
@@ -12,6 +15,19 @@ class QrCubit extends Cubit<QrState> {
   static QrCubit of(context) => BlocProvider.of(context);
   final DioHelper dio = DioHelper(client: Dio());
   String? qrCode;
+  String? barcode;
+  // Barcode? result;
+  // QRViewController? controller;
+  // final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  // void onQRViewCreated(QRViewController controller) {
+  //   this.controller = controller;
+  //   controller.scannedDataStream.listen((scanData) {
+  //     result = scanData;
+  //   });
+  // }
+
+
+
   Future<void> getScans() async {
     emit(QrResultLoading());
     try {
@@ -41,7 +57,6 @@ class QrCubit extends Cubit<QrState> {
       showSnackBar(e.toString(), isError: true);
     }
   }
-
   Future<void> postScans() async {
     emit(QrScanLoading());
     try {

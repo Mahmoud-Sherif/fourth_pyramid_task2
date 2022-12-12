@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +13,7 @@ import 'package:fourth_pyramid_task2/feature/qr/cubit/qr_cubit.dart';
 import 'package:fourth_pyramid_task2/feature/qr/presentation/result/result_view.dart';
 import 'package:fourth_pyramid_task2/widgets/loading_indicator.dart';
 import 'package:fourth_pyramid_task2/widgets/main_button.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 part 'units/qr_scan.dart';
 part 'units/scan_btn.dart';
 part 'units/tittle.dart';

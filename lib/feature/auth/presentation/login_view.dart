@@ -20,12 +20,12 @@ class LoginView extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            const MyArc(
-              diameter: 400,
+            MyArc(
+              diameter: 400.w,
               adjust: 3,
             ),
-            const MyArc(
-              diameter: 350,
+            MyArc(
+              diameter: 350.w,
               adjust: 1,
             ),
             SafeArea(
